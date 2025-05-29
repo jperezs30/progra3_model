@@ -4,8 +4,12 @@ import com.umg.edu.progra3_model.enums.TicketStatus;
 import jakarta.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Ticket implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,5 +27,8 @@ public class Ticket implements Serializable {
     private LocalDateTime createdAt;
     private LocalDateTime attendedAt;
 
-    // Getters and Setters
+    @PrePersist
+    public void prePersist() {
+        this.createdAt = LocalDateTime.now();
+    }
 }

@@ -2,8 +2,12 @@ package com.umg.edu.progra3_model.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Service implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,5 +19,4 @@ public class Service implements Serializable {
     @ManyToOne
     private Service parentService;
 
-    // Getters and Setters
 }

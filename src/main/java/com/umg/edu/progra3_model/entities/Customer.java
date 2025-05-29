@@ -2,8 +2,12 @@ package com.umg.edu.progra3_model.entities;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@NoArgsConstructor
 public class Customer implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,5 +17,4 @@ public class Customer implements Serializable {
     private String email;
     private String phone;
 
-    // Getters and Setters
 }
